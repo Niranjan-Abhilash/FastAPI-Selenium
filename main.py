@@ -4,6 +4,9 @@ from extract import *
 import os
 from fastapi.middleware.cors import CORSMiddleware
 
+app = FastAPI()
+
+
 origins = [
     "https://testing0.pages.dev",
 ]
@@ -20,7 +23,6 @@ app.add_middleware(
 SECRET = os.getenv("SECRET")
 
 #
-app = FastAPI()
 
 class Msg(BaseModel):
     msg: str
