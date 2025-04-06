@@ -2,6 +2,19 @@ from fastapi import FastAPI, BackgroundTasks, HTTPException
 from pydantic import BaseModel
 from extract import *
 import os
+from fastapi.middleware.cors import CORSMiddleware
+
+origins = [
+    "https://testing0.pages.dev",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],     # or limit to ["GET", "POST"]
+    allow_headers=["*"],
+)
 
 
 SECRET = os.getenv("SECRET")
